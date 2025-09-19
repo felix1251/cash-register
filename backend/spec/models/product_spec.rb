@@ -6,6 +6,8 @@ RSpec.describe Product, type: :model do
   it 'Create product' do
     expect(product).to be_valid
     expect(product.name).to be_present
+    expect(product.code).to be_present
+    expect(product.base_price).to be_present
   end
 end
 
