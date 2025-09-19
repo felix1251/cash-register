@@ -45,11 +45,11 @@ jobs:
 
       - name: Setup DB and Run Tests
         env:
-          POSTGRES_HOST: localhost
-          POSTGRES_DB_NAME: cash_register_test
+          DB_HOST: localhost
+          DB_PORT: 5432
+          POSTGRES_DB: cash_register_test
           POSTGRES_PASSWORD: cash_register
           POSTGRES_USERNAME: cash_register
-          POSTGRES_PORT: 5432
           RAILS_ENV: test
           PARALLEL_TEST_PROCESSORS: 2
         run: |
