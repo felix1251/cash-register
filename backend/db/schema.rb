@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_09_19_061114) do
     t.bigint "promotion_rule_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id", "promotion_rule_id"], name: "index_product_promotions_on_product_id_and_promotion_rule_id", unique: true
     t.index ["product_id"], name: "index_product_promotions_on_product_id"
     t.index ["promotion_rule_id"], name: "index_product_promotions_on_promotion_rule_id"
   end

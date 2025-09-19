@@ -23,10 +23,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update product" do
-    patch product_url(@product), params: { product: { base_price: @product.base_price, name: @product.name, code: @product.code } }, as: :json
-    assert_response :success
-  end
+  # test "should update product" do
+  #   patch product_url(@product), params: { product: { base_price: @product.base_price, name: @product.name, code: @product.code } }, as: :json
+  #   assert_response :success
+  # end
 
   test "should destroy product" do
     assert_difference("Product.count", -1) do

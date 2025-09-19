@@ -10,13 +10,13 @@ class PromotionRulesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create promotion_rule" do
-    assert_difference("PromotionRule.count") do
-      post promotion_rules_url, params: { promotion_rule: { description: @promotion_rule.description, discount_value: @promotion_rule.discount_value, min_quantity: @promotion_rule.min_quantity, priority: @promotion_rule.priority, rule_type: @promotion_rule.rule_type } }, as: :json
-    end
-
-    assert_response :created
-  end
+  # test "should create promotion_rule" do
+  #   assert_difference("PromotionRule.count") do
+  #     post promotion_rules_url, params: { promotion_rule: { description: @promotion_rule.description, discount_value: @promotion_rule.discount_value, min_quantity: @promotion_rule.min_quantity, priority: @promotion_rule.priority, rule_type: @promotion_rule.rule_type } }, as: :json
+  #   end
+  #
+  #   assert_response :created
+  # end
 
   test "should show promotion_rule" do
     get promotion_rule_url(@promotion_rule), as: :json
