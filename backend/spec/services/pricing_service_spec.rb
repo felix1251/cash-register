@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PricingService, type: :model do
-  describe 'testing pricing service' do
+  describe 'Testing pricing service' do
     let(:gr1) { create(:product, :gr1) }
     let(:sr1) { create(:product, :sr1) }
     let(:cf1) { create(:product, :cf1) }
