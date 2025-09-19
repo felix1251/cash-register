@@ -42,14 +42,14 @@ group :development, :test do
   # .env Variables
   gem "dotenv-rails", "~> 3.1"
 
-  # Annotation
+  # Testing
   gem "annotate"
+  gem "faker"
+  gem "rspec-rails"
+  gem "parallel_tests"
+  gem "factory_bot_rails"
 end
 
 group :test do
-  gem "faker"
   gem "database_cleaner-active_record"
-  gem "factory_bot_rails"
-  gem "rspec-rails"
-  gem "parallel_tests"
 end
