@@ -1,8 +1,12 @@
-class Product < ApplicationRecord
-  has_many :product_promotions
+require 'rails_helper'
 
-  validates :name, :code, :base_price, presence: true
-  validates :code, uniqueness: true
+RSpec.describe Product, type: :model do
+  let(:product) { build(:product) }
+
+  it 'Create product' do
+    expect(product).to be_valid
+    expect(product.name).to be_present
+  end
 end
 
 # == Schema Information
