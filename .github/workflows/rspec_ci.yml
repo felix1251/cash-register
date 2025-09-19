@@ -40,9 +40,8 @@ jobs:
       - name: Set up Ruby and dependencies
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.0
+          working-directory: backend
           bundler-cache: true
-          cache-dependency-path: backend/Gemfile.lock
 
       - name: Setup DB and Run Tests
         env:
