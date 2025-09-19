@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :promotion_rules
   resources :products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
