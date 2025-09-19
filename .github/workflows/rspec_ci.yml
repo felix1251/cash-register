@@ -42,6 +42,7 @@ jobs:
         with:
           ruby-version: 3.3.0
           bundler-cache: true
+          cache-dependency-path: backend/Gemfile.lock
 
       - name: Setup DB and Run Tests
         env:
