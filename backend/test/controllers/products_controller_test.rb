@@ -2,7 +2,7 @@ require "test_helper"
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @product = products(:one)
+    @product = products(:gr1)
   end
 
   test "should get index" do
@@ -12,7 +12,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference("Product.count") do
-      post products_url, params: { product: { base_price: @product.base_price, name: @product.name } }, as: :json
+      post products_url, params: { product: { base_price: @product.base_price, name: @product.name, code: @product.code } }, as: :json
     end
 
     assert_response :created
@@ -24,7 +24,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product" do
-    patch product_url(@product), params: { product: { base_price: @product.base_price, name: @product.name } }, as: :json
+    patch product_url(@product), params: { product: { base_price: @product.base_price, name: @product.name, code: @product.code } }, as: :json
     assert_response :success
   end
 
