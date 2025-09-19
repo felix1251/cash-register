@@ -27,7 +27,7 @@ class PricingService
         code: product.code,
         name: product.name,
         quantity: quantity,
-        unit_price: product.base_price,
+        unit_price: product.base_price.round(2),
         final_price: final_price.round(2)
       }
     end

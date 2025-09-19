@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PricingService, type: :model do
-  describe 'test pricing service' do
+  describe 'testing pricing service' do
     let(:gr1) { create(:product, :gr1) }
     let(:sr1) { create(:product, :sr1) }
     let(:cf1) { create(:product, :cf1) }
@@ -10,13 +10,25 @@ RSpec.describe PricingService, type: :model do
     let(:bulk_fixed) { create(:promotion_rule, :bulk_fixed) }
     let(:bulk_factor) { create(:promotion_rule, :bulk_factor) }
 
-    let!(:gr1_bogo) { create(:product_promotion, product: gr1, promotion_rule: bogo) }
-    let!(:sr1_bulk_fixed) { create(:product_promotion, product: sr1, promotion_rule: bulk_fixed) }
-    let!(:cf1_bulk_factor) { create(:product_promotion, product: cf1, promotion_rule: bulk_factor) }
+    before do
+      create(:product_promotion, product: gr1, promotion_rule: bogo)
+      create(:product_promotion, product: sr1, promotion_rule: bulk_fixed)
+      create(:product_promotion, product: cf1, promotion_rule: bulk_factor)
+    end
 
-    it 'test: GR1,SR1,GR1,GR1,CF1' do
+    it 'GR1,SR1,GR1,GR1,CF1' do
       pricing = PricingService.new("GR1,SR1,GR1,GR1,CF1")
-      puts pricing.calculate
+      expect(pricing.calculate[:total].to_f).to eq(22.45)
+    end
+
+    it 'GR1,GR1' do
+      pricing = PricingService.new("GR1,GR1")
+      expect(pricing.calculate[:total].to_f).to eq(3.11)
+    end
+
+    it 'GR1,CF1,SR1,CF1,CF1' do
+      pricing = PricingService.new("GR1,CF1,SR1,CF1,CF1")
+      expect(pricing.calculate[:total].to_f).to eq(30.57)
     end
   end
 end
