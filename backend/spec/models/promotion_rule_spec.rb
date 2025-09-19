@@ -1,5 +1,16 @@
-class PromotionRule < ApplicationRecord
-  has_many :product_promotions
+require 'rails_helper'
+
+RSpec.describe PromotionRule, type: :model do
+  let(:promotion_rule) { build(:promotion_rule) }
+
+  it 'Create promotion rule' do
+    expect(promotion_rule).to be_valid
+    expect(promotion_rule.rule_type).to be_present
+    expect(promotion_rule.description).to be_present
+    expect(promotion_rule.discount_value).to be_present
+    expect(promotion_rule.min_quantity).to be_present
+    expect(promotion_rule.priority).to be_present
+  end
 end
 
 # == Schema Information

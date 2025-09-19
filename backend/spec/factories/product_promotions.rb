@@ -1,6 +1,8 @@
-class ProductPromotion < ApplicationRecord
-  belongs_to :product
-  belongs_to :promotion_rule
+FactoryBot.define do
+  factory :product_promotion do
+    product { create(:product) }
+    promotion_rule { create(:promotion_rule) }
+  end
 end
 
 # == Schema Information

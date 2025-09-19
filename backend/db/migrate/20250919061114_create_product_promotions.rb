@@ -6,5 +6,7 @@ class CreateProductPromotions < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
+
+    add_index :product_promotions, [ :product_id, :promotion_rule_id ], unique: true
   end
 end

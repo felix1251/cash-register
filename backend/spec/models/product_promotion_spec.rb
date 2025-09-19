@@ -1,6 +1,13 @@
-class ProductPromotion < ApplicationRecord
-  belongs_to :product
-  belongs_to :promotion_rule
+require 'rails_helper'
+
+RSpec.describe ProductPromotion, type: :model do
+  let(:product_promotion) { build(:product_promotion) }
+
+  it 'Create product promotion' do
+    expect(product_promotion).to be_valid
+    expect(product_promotion.product).to be_present
+    expect(product_promotion.promotion_rule).to be_present
+  end
 end
 
 # == Schema Information
