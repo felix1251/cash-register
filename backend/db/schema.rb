@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_09_19_041446) do
+ActiveRecord::Schema[7.2].define(version: 2025_09_19_061114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "product_promotions", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "promotion_rule_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_promotions_on_product_id"
+    t.index ["promotion_rule_id"], name: "index_product_promotions_on_promotion_rule_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
@@ -22,4 +31,18 @@ ActiveRecord::Schema[7.2].define(version: 2025_09_19_041446) do
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_products_on_code", unique: true
   end
+
+  create_table "promotion_rules", force: :cascade do |t|
+    t.string "rule_type", null: false
+    t.integer "min_quantity", null: false
+    t.decimal "discount_value", null: false
+    t.string "description", null: false
+    t.integer "priority", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rule_type"], name: "index_promotion_rules_on_rule_type", unique: true
+  end
+
+  add_foreign_key "product_promotions", "products"
+  add_foreign_key "product_promotions", "promotion_rules"
 end
