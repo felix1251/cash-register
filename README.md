@@ -4,12 +4,10 @@
 
 # Ruby on Rails Backend 
 
-## Development Environment
-
 Copy ENV
 
 ```
-cp .env.template .env
+cp .env.example .env
 ```
 
 Install dependencies
@@ -112,7 +110,7 @@ annotate
 
 ### README [frontend/README.md](frontend/README.md)
 
-# React + TypeScript + Vite
+# React + TypeScript + Vite Frontend
 
 Install dependencies
 

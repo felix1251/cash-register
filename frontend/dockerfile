@@ -1,0 +1,32 @@
+FROM node:20-alpine AS build
+WORKDIR /app
+
+# Define build-time args
+ARG VITE_API_URL
+
+# Set as environment so Vite picks them up
+ENV VITE_API_URL=$VITE_API_URL
+
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+COPY . .
+RUN yarn build
+
+FROM golang:1.23-alpine AS server
+WORKDIR /app
+
+COPY go/server ./
+RUN go mod download
+
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o server .
+
+FROM alpine:latest
+WORKDIR /app
+
+COPY --from=server /app/server .
+COPY --from=build /app/dist ./dist
+
+EXPOSE 3000
+
+CMD ["./server"]
