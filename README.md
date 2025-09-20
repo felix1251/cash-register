@@ -11,7 +11,7 @@
 Copy ENV
 
 ```
-cp .env.example .env
+cp .env.sample .env
 ```
 
 Install dependencies
