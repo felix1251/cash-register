@@ -1,0 +1,32 @@
+name: Backend Deploy
+
+on:
+  workflow_run:
+    workflows: [Backend Build]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  build:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ secrets.DOCKER_USERNAME }}/cash-register-api
+          tags: |
+            type=raw,value=${{ github.event.workflow_run.head_branch }}
+            
+      - name: Deploy Backend
+        uses: caprover/deploy-from-github@v1.1.2
+        with:
+          server: ${{ secrets.CAPROVER_SERVER }}
+          app: cash-register-api
+          token: ${{ secrets.BACKEND_APP_TOKEN }}
+          image: ${{ steps.meta.outputs.tags }}
