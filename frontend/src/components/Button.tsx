@@ -23,6 +23,7 @@ export default function Button({
         size === "small" && "text-sm py-1 px-3",
         disabled && "bg-gray-300",
       )}
+      disabled={disabled}
       {...props}
     >
       {children}

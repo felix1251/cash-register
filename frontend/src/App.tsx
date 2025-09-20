@@ -61,16 +61,14 @@ function App() {
               <h2 className="text-lg font-semibold">Cart / Basket</h2>
               {basketLoading && <Spinner />}
             </div>
-            {basket.length > 0 && (
-              <Button
-                disabled={basketLoading}
-                variant="secondary"
-                size="small"
-                onClick={clearBasket}
-              >
-                x clear
-              </Button>
-            )}
+            <Button
+              disabled={basket.length <= 0}
+              variant="secondary"
+              size="small"
+              onClick={clearBasket}
+            >
+              x clear
+            </Button>
           </div>
           <div>
             <div className="mb-1.5">Product code:</div>
