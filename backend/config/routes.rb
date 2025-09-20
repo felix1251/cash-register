@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post "/basket", to: "basket#calculate"
+  get "/basket", to: "basket#calculate"
   # resources :product_promotions
   # resources :promotion_rules
   resources :products, only: :index
