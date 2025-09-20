@@ -1,4 +1,7 @@
-\n[Backend API endpoint - api.cash-register.felixabacajen.site](https://api.cash-register.felixabacajen.site/)\n
+# Cash Register App
+
+[Live site - cash-register.felixabacajen.site](https://cash-register.felixabacajen.site/)
+[Backend API endpoint - api.cash-register.felixabacajen.site](https://api.cash-register.felixabacajen.site/)
 
 ### README [backend/README.md](backend/README.md)
 
