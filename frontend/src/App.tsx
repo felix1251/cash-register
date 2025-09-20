@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import AppLayout from "./components/AppLayout";
 import { getProductList } from "./api/product.request";
 import { useState } from "react";
@@ -7,7 +7,6 @@ import BasketItem from "./components/BasketItem";
 import { getBasketList } from "./api/basket.request";
 import Spinner from "./components/Spinner";
 import Button from "./components/Button";
-import XIcon from "./components/XIcon";
 import CodeButton from "./components/CodeButton";
 
 function App() {
