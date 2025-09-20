@@ -18,17 +18,17 @@ RSpec.describe PricingService, type: :model do
 
     it 'GR1,SR1,GR1,GR1,CF1' do
       pricing = PricingService.new("GR1,SR1,GR1,GR1,CF1")
-      expect(pricing.calculate[:total].to_f).to eq(22.45)
+      expect(pricing.calculate[:total]).to eq(22.45)
     end
 
     it 'GR1,GR1' do
       pricing = PricingService.new("GR1,GR1")
-      expect(pricing.calculate[:total].to_f).to eq(3.11)
+      expect(pricing.calculate[:total]).to eq(3.11)
     end
 
     it 'GR1,CF1,SR1,CF1,CF1' do
       pricing = PricingService.new("GR1,CF1,SR1,CF1,CF1")
-      expect(pricing.calculate[:total].to_f).to eq(30.57)
+      expect(pricing.calculate[:total]).to eq(30.57)
     end
   end
 end

@@ -27,14 +27,14 @@ class PricingService
         code: product.code,
         name: product.name,
         quantity: quantity,
-        unit_price: product.base_price,
-        final_price: final_price.round(2)
+        unit_price: product.base_price.to_f,
+        final_price: final_price.round(2).to_f
       }
     end
 
     {
       items: items,
-      total: items.sum { |i| i[:final_price] }.round(2)
+      total: items.sum { |i| i[:final_price] }.round(2).to_f
     }
   end
 

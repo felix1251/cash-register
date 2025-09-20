@@ -21,7 +21,7 @@ RSpec.describe BasketController, type: :controller do
       expect(response).to have_http_status(:ok)
 
       json = JSON.parse(response.body)
-      expect(json["total"].to_f).to eq(22.45)
+      expect(json["total"]).to eq(22.45)
     end
 
     it "Params: GR1,GR1" do
@@ -29,7 +29,7 @@ RSpec.describe BasketController, type: :controller do
       expect(response).to have_http_status(:ok)
 
       json = JSON.parse(response.body)
-      expect(json["total"].to_f).to eq(3.11)
+      expect(json["total"]).to eq(3.11)
     end
 
     it "Params: GR1,GR1" do
@@ -37,7 +37,7 @@ RSpec.describe BasketController, type: :controller do
       expect(response).to have_http_status(:ok)
 
       json = JSON.parse(response.body)
-      expect(json["total"].to_f).to eq(3.11)
+      expect(json["total"]).to eq(3.11)
     end
 
     it "Params: GR1,CF1,SR1,CF1,CF1" do
@@ -45,7 +45,7 @@ RSpec.describe BasketController, type: :controller do
       expect(response).to have_http_status(:ok)
 
       json = JSON.parse(response.body)
-      expect(json["total"].to_f).to eq(30.57)
+      expect(json["total"]).to eq(30.57)
     end
   end
 end
