@@ -16,7 +16,7 @@ export default function Button({
   return (
     <button
       className={cn(
-        "px-9 py-2.5 text-white rounded-lg font-semibold cursor-pointer",
+        "px-9 py-2.5 text-white rounded-lg font-semibold cursor-pointer disabled:cursor-not-allowed",
         variant === "primary" && "bg-primary",
         variant === "secondary" && "bg-secondary",
         variant === "warn" && "bg-red-700",
