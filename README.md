@@ -1,7 +1,8 @@
 # Cash Register App
 
-[Live site - cash-register.felixabacajen.site](https://cash-register.felixabacajen.site/)
-[Backend API endpoint - api.cash-register.felixabacajen.site](https://api.cash-register.felixabacajen.site/)
+[Live Site - cash-register.felixabacajen.site](https://cash-register.felixabacajen.site/)
+
+[Backend API Endpoint - api.cash-register.felixabacajen.site](https://api.cash-register.felixabacajen.site/)
 
 ### README [backend/README.md](backend/README.md)
 

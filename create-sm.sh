@@ -12,8 +12,8 @@ files=(
 # Create new README.md
 echo "# Cash Register App" > README.md
 
-echo -e "\n[Live site - cash-register.felixabacajen.site](https://cash-register.felixabacajen.site/)" >> README.md
-echo -e "[Backend API endpoint - api.cash-register.felixabacajen.site](https://api.cash-register.felixabacajen.site/)" >> README.md
+echo -e "\n[Live Site - cash-register.felixabacajen.site](https://cash-register.felixabacajen.site/)\n" >> README.md
+echo -e "[Backend API Endpoint - api.cash-register.felixabacajen.site](https://api.cash-register.felixabacajen.site/)" >> README.md
 
 # Append each file with a header
 for file in "${files[@]}"; do
