@@ -18,7 +18,7 @@ export default function Button({
         variant === "primary" && "bg-primary",
         variant === "secondary" && "bg-secondary",
         variant === "warn" && "bg-red-700",
-        size === "small" && "text-sm py-1.5 px-4",
+        size === "small" && "text-sm py-1 px-3",
       )}
       {...props}
     >
