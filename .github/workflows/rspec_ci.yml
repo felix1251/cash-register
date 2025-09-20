@@ -2,12 +2,14 @@ name: RSpec Test CI
 
 on:
   push:
-    branches: [main]
+    branches: 
+      - main
     paths:
       - 'backend/**'
       - '.github/workflows/rspec-ci.yml'
   pull_request:
-    branches: [main]
+    branches: 
+      - main
     paths:
       - 'backend/**'
       - '.github/workflows/rspec-ci.yml'
