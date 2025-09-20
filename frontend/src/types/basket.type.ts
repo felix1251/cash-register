@@ -12,7 +12,7 @@ export type BasketItem = {
   final_price: number;
 };
 
-export type BasketResponse = {
+export type Basket = {
   items: BasketItem[];
   total: number;
 };
