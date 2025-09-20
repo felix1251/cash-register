@@ -9,7 +9,7 @@ export default function BasketItem({ item }: Props) {
     <div className="py-1.5 flex gap-3 items-center justify-between">
       <div>
         ({item.code}) {item.name} x {item.quantity}, Unit price:{" "}
-        {item.unit_price} €, Total: {item.final_price} €
+        {item.unit_price} €, Final price: {item.final_price} €
       </div>
     </div>
   );
