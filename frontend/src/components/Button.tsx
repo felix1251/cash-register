@@ -3,11 +3,13 @@ import { cn } from "../utils/style";
 type ButtonProps = {
   variant?: "primary" | "secondary" | "warn";
   size?: "default" | "small";
+  disabled?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({
   variant = "primary",
   size = "default",
+  disabled,
   children,
   ...props
 }: ButtonProps) {
@@ -19,6 +21,7 @@ export default function Button({
         variant === "secondary" && "bg-secondary",
         variant === "warn" && "bg-red-700",
         size === "small" && "text-sm py-1 px-3",
+        disabled && "bg-gray-300",
       )}
       {...props}
     >

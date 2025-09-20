@@ -61,9 +61,16 @@ function App() {
               <h2 className="text-lg font-semibold">Cart / Basket</h2>
               {basketLoading && <Spinner />}
             </div>
-            <Button variant="secondary" size="small" onClick={clearBasket}>
-              x clear
-            </Button>
+            {basket.length > 0 && (
+              <Button
+                disabled={basketLoading}
+                variant="secondary"
+                size="small"
+                onClick={clearBasket}
+              >
+                x clear
+              </Button>
+            )}
           </div>
           <div>
             <div className="mb-1.5">Product code:</div>
@@ -71,6 +78,7 @@ function App() {
               {basket.length > 0 ? (
                 basket.map((item, index) => (
                   <CodeButton
+                    key={index}
                     index={index}
                     code={item}
                     removeItem={removeItem}
