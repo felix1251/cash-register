@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: rgba(45, 109, 237, 1);
+  --color-primary: #2d6deb;
+  --color-secondary: #1c2b48;
+  --font-inter: Inter, sans-serif;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply min-h-screen text-secondary font-inter;
+  }
+
+  #root {
+    @apply flex flex-col;
+  }
 }
