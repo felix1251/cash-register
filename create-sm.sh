@@ -12,6 +12,9 @@ files=(
 # Create new README.md
 echo "# Cash Register App" > README.md
 
+echo "[Live site - cash-register.felixabacajen.site](https://cash-register.felixabacajen.site/)" > README.md
+echo "[Backend API endpoint - api.cash-register.felixabacajen.site](https://api.cash-register.felixabacajen.site/)" > README.md
+
 # Append each file with a header
 for file in "${files[@]}"; do
   section=$(basename "$file" | sed 's/\.[^.]*$//' | tr '[:lower:]' '[:upper:]')

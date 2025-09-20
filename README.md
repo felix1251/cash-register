@@ -1,4 +1,4 @@
-# Cash Register App
+[Backend API endpoint - api.cash-register.felixabacajen.site](https://api.cash-register.felixabacajen.site/)
 
 ### README [backend/README.md](backend/README.md)
 
