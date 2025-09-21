@@ -5,7 +5,7 @@ on:
     branches: 
       - main
     paths:
-      - 'Backend/**'
+      - 'backend/**'
       - '.github/workflows/backend-build.yml'
   workflow_dispatch:
 
