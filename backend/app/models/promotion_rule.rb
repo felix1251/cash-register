@@ -1,5 +1,5 @@
 class PromotionRule < ApplicationRecord
-  has_many :product_promotions
+  has_many :product_promotions, dependent: :destroy
 end
 
 # == Schema Information
