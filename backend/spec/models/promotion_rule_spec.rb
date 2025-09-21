@@ -26,7 +26,3 @@ end
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
-# Indexes
-#
-#  index_promotion_rules_on_rule_type  (rule_type) UNIQUE
-#

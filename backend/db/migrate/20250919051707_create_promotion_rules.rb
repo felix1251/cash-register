@@ -9,7 +9,5 @@ class CreatePromotionRules < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
-
-    add_index :promotion_rules, :rule_type, unique: true
   end
 end
