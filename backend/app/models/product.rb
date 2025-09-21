@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   has_many :product_promotions
+  has_many :promotion_rules, through: :product_promotions, dependent: :destroy
 
   validates :name, :code, :base_price, presence: true
   validates :code, uniqueness: true

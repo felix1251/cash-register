@@ -3,7 +3,7 @@ class PricingService
     @cart_items = items_str.split(",").tally.map { |code, qty| { code: code, quantity: qty } }
     product_codes = @cart_items.map { |item| item[:code] }
 
-    @products = Product.includes(:product_promotions)
+    @products = Product.includes(:promotion_rules)
                        .where(code: product_codes)
                        .index_by(&:code)
   end
@@ -13,12 +13,12 @@ class PricingService
       product = @products[item[:code]]
       quantity = item[:quantity]
 
-      promotions = product.product_promotions
+      rules = product.promotion_rules
       # Implement priority
       # promotions = product.product_promotions.joins(:promotion_rule).order("promotion_rules.priority")
 
-      final_price = if promotions.any?
-                      apply_rules(product, quantity, promotions)
+      final_price = if rules.any?
+                      apply_rules(product, quantity, rules)
       else
                       product.base_price * quantity
       end
@@ -40,9 +40,8 @@ class PricingService
 
   private
 
-  def apply_rules(product, quantity, promotions)
-    promotions.each do |promo|
-      rule = promo.promotion_rule
+  def apply_rules(product, quantity, rules)
+    rules.each do |rule|
       case rule.rule_type
       when "BOGO"
         chargeable_quantity = (quantity / rule.min_quantity) * (rule.min_quantity - rule.discount_value) +
