@@ -41,7 +41,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_09_19_061114) do
     t.integer "priority", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rule_type"], name: "index_promotion_rules_on_rule_type", unique: true
   end
 
   add_foreign_key "product_promotions", "products"

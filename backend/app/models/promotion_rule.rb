@@ -1,5 +1,9 @@
 class PromotionRule < ApplicationRecord
+  RULE_TYPES = %w[BOGO BULK_FIXED BULK_FACTOR].freeze
+
   has_many :product_promotions, dependent: :destroy
+
+  validates :rule_type, presence: true, inclusion: { in: RULE_TYPES }
 end
 
 # == Schema Information
@@ -14,8 +18,4 @@ end
 #  rule_type      :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#
-# Indexes
-#
-#  index_promotion_rules_on_rule_type  (rule_type) UNIQUE
 #

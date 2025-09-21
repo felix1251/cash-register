@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :promotion_rule do
-    rule_type { Faker::Types.rb_string }
+    rule_type { "BOGO" }
     description { Faker::String.random }
     discount_value { Faker::Number.decimal(l_digits: 2) }
     min_quantity { Faker::Number.non_zero_digit }
@@ -40,8 +40,4 @@ end
 #  rule_type      :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#
-# Indexes
-#
-#  index_promotion_rules_on_rule_type  (rule_type) UNIQUE
 #
